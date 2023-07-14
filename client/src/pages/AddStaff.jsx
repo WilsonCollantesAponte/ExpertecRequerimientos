@@ -61,10 +61,11 @@ export default function AddStaff() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={m.form}>
       <div className={m.mainDiv}>
         <label htmlFor="">Nombres</label>
         <input
+          className={m.input}
           type="text"
           name="nombres"
           value={data.nombres}
@@ -74,6 +75,7 @@ export default function AddStaff() {
 
         <label htmlFor="">Apellidos</label>
         <input
+          className={m.input}
           type="text"
           name="apellidos"
           value={data.apellidos}
@@ -83,6 +85,7 @@ export default function AddStaff() {
 
         <label htmlFor="">Email</label>
         <input
+          className={m.input}
           type="email"
           name="email"
           value={data.email}
@@ -91,6 +94,7 @@ export default function AddStaff() {
 
         <label htmlFor="">Teléfono</label>
         <input
+          className={m.input}
           type="number"
           name="telefono"
           value={data.telefono}
@@ -100,6 +104,7 @@ export default function AddStaff() {
 
         <label htmlFor="">Empresa</label>
         <input
+          className={m.input}
           type="text"
           name="empresa"
           value={data.empresa}
@@ -109,6 +114,7 @@ export default function AddStaff() {
 
         <label htmlFor="">Password</label>
         <input
+          className={m.input}
           type="text"
           name="password"
           value={data.password}
@@ -116,32 +122,35 @@ export default function AddStaff() {
           onChange={handleChanges}
         />
 
-        <label>Administrador</label>
-        <input
-          className={m.radio}
-          type="radio"
-          name="acceso"
-          value="administrador"
-          onChange={handleChanges}
-        />
+        <div className={m.typeUsers}>
+          <label>Administrador</label>
+          <input
+            className={m.radio}
+            type="radio"
+            name="acceso"
+            value="administrador"
+            onChange={handleChanges}
+          />
 
-        <label>Desarrollador</label>
-        <input
-          className={m.radio}
-          type="radio"
-          name="acceso"
-          value="desarrollador"
-          onChange={handleChanges}
-        />
+          <label>Desarrollador</label>
+          <input
+            className={m.radio}
+            type="radio"
+            name="acceso"
+            value="desarrollador"
+            onChange={handleChanges}
+          />
 
-        <label>Cliente</label>
-        <input
-          className={m.radio}
-          type="radio"
-          name="acceso"
-          value="cliente"
-          onChange={handleChanges}
-        />
+          <label>Cliente</label>
+          <input
+            className={m.radio}
+            type="radio"
+            name="acceso"
+            value="cliente"
+            onChange={handleChanges}
+          />
+        </div>
+
         <button className={m.button}>Send</button>
       </div>
     </form>

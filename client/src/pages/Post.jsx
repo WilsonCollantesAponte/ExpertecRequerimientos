@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import "../assets/css/componentes/card.css";
+// import "../assets/css/componentes/card.css";
+import m from "../assets/css/Post.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -39,42 +40,53 @@ const Post = () => {
 
   return (
     <main className="container flex flex--center">
-      <article className="card post">
-        <h2 className="post-card__title">title: {detail.title}</h2>
-        <p className="text__card">descripcion: {detail.descripcion}</p>
-        <p className="text__card">
-          tipoRequerimiento: {detail.tipoRequerimiento}
-        </p>
-        <p className="text__card">plataforma: {detail.plataforma}</p>
-        <p className="text__card">vista: {detail.vista}</p>
-        <p className="text__card">interaccion: {detail.interaccion}</p>
-        <p className="text__card">prioridad: {detail.prioridad}</p>
-        <p className="text__card">emailCliente: {detail.emailCliente}</p>
-        <p className="text__card">
-          Nombre(s) del cliente: {detailOther?.nameC}
-        </p>
-        <p className="text__card">
-          Apellidos(s) del cliente: {detailOther?.apellC}
-        </p>
+      <div className="card post">
+        <div className={m.div2}>
+          <h1 className="post-card__title">{detail.title}</h1>
+          <p className={m.p}>Descripcion: {detail.descripcion}</p>
+          <p className={m.p}>
+            Tipo de requerimiento: {detail.tipoRequerimiento}
+          </p>
+          <p className={m.p}>Plataforma: {detail.plataforma}</p>
+          <p className={m.p}>Vista: {detail.vista}</p>
+          <p className={m.p}>Interaccion: {detail.interaccion}</p>
+          <p className={m.p}>Prioridad: {detail.prioridad}</p>
+          <p className={m.p}>Email del cliente: {detail.emailCliente}</p>
+          <p className={m.p}>Nombre(s) del cliente: {detailOther?.nameC}</p>
+          <p className={m.p}>Apellidos(s) del cliente: {detailOther?.apellC}</p>
 
-        <p className="text__card">
-          emailDesarrollador: {detail.emailDesarrollador}
-        </p>
-        <p className="text__card">
-          Nombre(s) del desarrollador: {detailOther?.nameD}
-        </p>
-        <p className="text__card">
-          Apellidos(s) del desarrollador: {detailOther?.apellD}
-        </p>
+          <p className={m.p}>
+            Email del desarrollador: {detail.emailDesarrollador}
+          </p>
+          <p className={m.p}>
+            Nombre(s) del desarrollador: {detailOther?.nameD}
+          </p>
+          <p className={m.p}>
+            Apellidos(s) del desarrollador: {detailOther?.apellD}
+          </p>
 
-        <p className="text__card">fechaInicio: {detail.fechaInicio}</p>
-        <p className="text__card">fechaFin: {detail.fechaFin}</p>
-        <p className="text__card">tiempoEstimado: {detail.tiempoEstimado}</p>
-        <p className="text__card">
-          estadoFinalAdmin: {detail.estadoFinalAdmin}
-        </p>
-        <p className="text__card">estadoFinalDev: {detail.estadoFinalDev}</p>
-      </article>
+          <p className={m.p}>Fecha de inicio: {detail.fechaInicio}</p>
+          <p className={m.p}>fecha de fin: {detail.fechaFin}</p>
+          <p className={m.p}>Tiempo estimado: {detail.tiempoEstimado}</p>
+
+          <p className={m.p}>
+            {detail.estadoFinalDev ? (
+              <span>El desarrollador ha terminado este requerimiento ✅</span>
+            ) : (
+              <span>
+                El desarrollador aún no ha terminado este requerimiento ❌
+              </span>
+            )}
+          </p>
+          <p className={m.p}>
+            {detail.estadoFinalAdmin ? (
+              <span>Aprobado por un administrador ✅</span>
+            ) : (
+              <span>No ha sido aprobado por algún administrador ❌</span>
+            )}
+          </p>
+        </div>
+      </div>
     </main>
   );
 };

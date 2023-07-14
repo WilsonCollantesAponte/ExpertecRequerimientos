@@ -1,3 +1,4 @@
+import m from "../assets/css/componentes/User.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -41,17 +42,20 @@ export default function Users() {
     setSearch(value);
   }
 
-  console.log(search);
-
-  console.log(users, type);
-
   return (
-    <div>
-      <label>-----</label>{" "}
-      <input type="search" value={search} onChange={handleSearch} />
-      <button value={search} name="buttonSearch" onClick={handleSearch}>
-        Buscar
-      </button>
+    <div className={m.mainDiv}>
+      <div className={m.search}>
+        <input type="search" value={search} onChange={handleSearch} />
+        <button
+          className={m.buttonSearch}
+          value={search}
+          name="buttonSearch"
+          onClick={handleSearch}
+        >
+          Buscar
+        </button>
+      </div>
+
       <section className="posts container">
         {users?.map((users) => {
           const { id, nombres, apellidos } = users;
@@ -60,25 +64,6 @@ export default function Users() {
               <article>
                 <h3 className="post-card__title">{nombres}</h3>
                 <p className="post-card__meta">{apellidos}</p>
-                {/* {(administrador || desarrollador) && (
-                <div>
-                  <span>Estado de finalizacion del desarrollador</span>
-                  {estadoFinalAdmin ? <span>✅</span> : <span>❌</span>}
-                  <br />
-                  <span>Aprobacion del administrador</span>
-                  {estadoFinalDev ? <span>✅</span> : <span>❌</span>}
-                </div>
-              )}
-              {cliente && (
-                <div>
-                  <span>Terminado</span>
-                  {estadoFinalAdmin && estadoFinalDev ? (
-                    <span>✅</span>
-                  ) : (
-                    <span>❌</span>
-                  )}
-                </div>
-              )} */}
               </article>
             </Link>
           );

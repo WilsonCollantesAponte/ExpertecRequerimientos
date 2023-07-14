@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { typeFilter } from "../redux/actions/actions";
+import m from "../assets/css/componentes/ListPost.module.css";
 
 const ListPost = () => {
   const dispatch = useDispatch();
@@ -73,7 +74,10 @@ const ListPost = () => {
 
   return (
     <div className="posts container">
-      <ul className="category-list container flex">
+      <ul
+        // className="category-list container flex"
+        className={m.ulMain}
+      >
         <button
           className={`category-list__category category-list__category--Alta`}
           name="Alta"

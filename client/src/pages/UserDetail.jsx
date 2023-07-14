@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import "../assets/css/componentes/card.css";
+import m from "../assets/css/componentes/UserDetail.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -16,18 +17,21 @@ export default function UserDetail() {
   console.log(detail);
   return (
     <main className="container flex flex--center">
-      <article className="card post">
-        <h2 className="post-card__title">nombres: {detail.nombres}</h2>
-        <p className="text__card">apellidos: {detail.apellidos}</p>
-        <p className="text__card">email: {detail.email}</p>
-        <p className="text__card">telefono: {detail.telefono}</p>
-        <p className="text__card">empresa: {detail.empresa}</p>
-        <p className="text__card">password: {detail.password}</p>
-        {detail.desarrollador && (
-          <p className="text__card">categoria: Desarrollador</p>
-        )}
-        {detail.cliente && <p className="text__card">categoria: Cliente</p>}
-      </article>
+      <div className={m.div2}>
+        <div className={m.divD}>Detalle</div>
+        <article className="card post">
+          <h2 className={m.p}>Nombre(s): {detail.nombres}</h2>
+          <p className={m.p}>Apellido: {detail.apellidos}</p>
+          <p className={m.p}>Email: {detail.email}</p>
+          <p className={m.p}>Teléfono: {detail.telefono}</p>
+          <p className={m.p}>Empresa: {detail.empresa}</p>
+          <p className={m.p}>Password: {detail.password}</p>
+          {detail.desarrollador && (
+            <p className={m.p}>categoria: Desarrollador</p>
+          )}
+          {detail.cliente && <p className={m.p}>categoria: Cliente</p>}
+        </article>
+      </div>
     </main>
   );
 }

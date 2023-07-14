@@ -54,7 +54,6 @@ const Login = () => {
       <input
         className={s.input}
         type="text"
-        placeholder="Email..."
         name="email"
         onChange={handleChange}
       />
@@ -68,7 +67,6 @@ const Login = () => {
       <input
         className={s.input}
         type="text"
-        placeholder="Password..."
         name="password"
         onChange={handleChange}
       />
@@ -90,7 +88,7 @@ const Login = () => {
           errors.password
         }
       >
-        Submit
+        Ingresar
       </button>
     </form>
   );

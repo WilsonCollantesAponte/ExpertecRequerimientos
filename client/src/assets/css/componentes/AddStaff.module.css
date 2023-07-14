@@ -1,13 +1,18 @@
-.mainDiv {
+.form {
   display: flex;
-  flex-direction: column;
-  padding: 30rem;
-  padding-top: 3rem;
+  justify-content: center;
 }
 
-input {
+.mainDiv {
+  flex-direction: column;
+  padding-top: 3rem;
+  display: inline-flex;
+}
+
+.input {
   margin-top: 6px;
   margin-bottom: 6px;
+  width: 400px;
 }
 
 .button {
@@ -27,4 +32,11 @@ input {
 
 .radio {
   display: inline-block;
+}
+
+.typeUsers {
+  /* background-color: rebeccapurple; */
+  display: grid;
+  margin-top: 0.8rem;
+  grid-template-columns: repeat(2, 1fr);
 }

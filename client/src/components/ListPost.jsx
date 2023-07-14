@@ -17,6 +17,7 @@ const ListPost = () => {
 
   useEffect(() => {
     if (!administrador) {
+      console.log("no admin");
       axios(`http://localhost:3001/user?id=${id}`).then(({ data }) => {
         if (typeFilterVal !== "ninguno") {
           setPostsSupport(data.Requirements);
@@ -49,7 +50,7 @@ const ListPost = () => {
     const id = event.target.value;
 
     axios.put(`http://localhost:3001/requirement`, { id }).then(() => {
-      setToggle(id + "admin");
+      setToggle(id + Date.now());
     });
   }
 
@@ -57,7 +58,7 @@ const ListPost = () => {
     const id = event.target.value;
 
     axios.put(`http://localhost:3001/requirementAdmin`, { id }).then(() => {
-      setToggle(id);
+      setToggle(id + Date.now());
     });
   }
 
@@ -111,14 +112,6 @@ const ListPost = () => {
                 <p className="post-card__meta">{descripcion}</p>
               </article>
             </Link>
-            {/* <button */}
-            {/* // className={`${m.toggleButton} ${toggle ? m.active : null}`} */}
-            {/* value={78}
-            onClick={handleToggle} */}
-            {/* > */}
-            {/* {estadoFinalDev && `✅`}
-              {!estadoFinalDev && `❌`} */}
-            {/* {true ? <span>ge</span> : <span>il</span>} */}
 
             {(administrador || desarrollador) && (
               <div>

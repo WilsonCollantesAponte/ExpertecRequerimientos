@@ -139,6 +139,7 @@ router.get("/requirement", async (req, res) => {
       one = await Requirement.findOne({
         where: { id },
         include: User,
+        order: [["id", "ASC"]],
       });
     } else {
       one = await Requirement.findAll({ order: [["id", "ASC"]] }); //// Solución al error causado por 'update' por defecto

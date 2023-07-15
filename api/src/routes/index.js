@@ -92,6 +92,28 @@ router.get("/allUsers", async (req, res) => {
   }
 });
 
+router.delete("/user", async (req, res) => {
+  try {
+    const { id, email } = req.body;
+
+    const willBeDeleted = await User.findByPk(id);
+
+    await Requirement.destroy({
+      where: {
+        [Op.or]: [{ emailCliente: email }, { emailDesarrollador: email }],
+      },
+    });
+
+    await User.destroy({
+      where: { id },
+    });
+
+    res.status(200).json({ id, email, message: "Deleted OK", willBeDeleted });
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+}); // con id e Email
+
 router.post("/requirement", async (req, res) => {
   try {
     const {

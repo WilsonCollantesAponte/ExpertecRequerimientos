@@ -25,7 +25,7 @@ export default function Users() {
     if (type === "Clientes" && name === "buttonSearch") {
       axios(`http://localhost:3001/allClients?name=${search}`).then(
         ({ data }) => {
-          console.log(data);
+          // console.log(data);
           const { customersFound } = data;
           setUsers(customersFound);
         }

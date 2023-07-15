@@ -14,6 +14,20 @@ export default function UserDetail() {
     });
   }, [id]);
 
+  function handleDelete() {
+    const { id, email } = detail;
+
+    if (!id || !email)
+      return alert(
+        `No se puede eliminar por que falta el 'email' o el 'identificador' del usuario`
+      );
+
+    console.log(id, email);
+    // axios
+    //   .delete(`http://localhost:3001/user`, { id, email })
+    //   .then(({ data }) => alert(data.message));
+  }
+
   console.log(detail);
   return (
     <main className="container flex flex--center">
@@ -30,6 +44,8 @@ export default function UserDetail() {
             <p className={m.p}>categoria: Desarrollador</p>
           )}
           {detail.cliente && <p className={m.p}>categoria: Cliente</p>}
+
+          <button onClick={handleDelete}>Eliminar usuario</button>
         </article>
       </div>
     </main>

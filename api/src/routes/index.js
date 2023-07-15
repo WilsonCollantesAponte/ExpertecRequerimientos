@@ -94,7 +94,7 @@ router.get("/allUsers", async (req, res) => {
 
 router.delete("/user", async (req, res) => {
   try {
-    const { id, email } = req.body;
+    const { id, email } = req.query;
 
     const willBeDeleted = await User.findByPk(id);
 
